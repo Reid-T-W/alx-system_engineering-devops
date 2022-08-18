@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+#print best school ten times but on the 9th iteration it print Hi
+i=1
+while [ $i -le 10 ]
+do
+	if test $i -eq 4
+	then
+		echo "bad luck"
+	elif test $i -eq 8
+	then
+		echo "good luck"
+	else
+		echo "Best School"
+	fi
+	((i++))
+done
+
