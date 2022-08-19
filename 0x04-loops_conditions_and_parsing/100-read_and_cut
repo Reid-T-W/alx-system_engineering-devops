@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#prints extracted content from the etc/passwd file
+exec {file_descriptor}<"/etc/passwd"
+declare -a input_array
+while IFS=":" read -r -a input_array -u $file_descriptor
+	do
+		echo "${input_array[0]}:${input_array[2]}:${input_array[5]}"
+	done
+exec {file_descriptor}>&-
+
