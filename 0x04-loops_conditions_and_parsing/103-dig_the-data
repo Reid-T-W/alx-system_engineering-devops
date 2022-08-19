@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 #groups visitors by ip and HTTPS status code and displays the data
-awk '($1)' apache-access.log | awk '{print $1,$9}' | uniq -c | sort -r 
+#awk '($9)' apache-access.log | sort | awk '{print $1,$9}' | uniq -c | sort -r 
+awk '{print $1,$9}' apache-access.log | sort | uniq -c | sort -r
