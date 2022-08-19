@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#bash scripts that displays a list of currently running processes
+ps --forest -axo user,pid,%cpu,%mem,vsz,rss,tty,stat,start,time,command
