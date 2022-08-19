@@ -2,6 +2,7 @@
 #displays contents of the current directory
 #filename=`ls ./ | cat filenames`
 #filenames=`ls ./ | cat filenames`
+$(ls ./ > list`)
 list="$(ls ./)"
 #for item in "&list"
 for item in $list
