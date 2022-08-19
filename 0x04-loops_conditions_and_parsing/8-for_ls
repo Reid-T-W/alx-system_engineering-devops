@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#displays contents of the current directory
+#filename=`ls ./ | cat filenames`
+#filenames=`ls ./ | cat filenames`
+list="$(ls ./)"
+#for item in "&list"
+for item in $list
+do
+	if test "$item" == "list"
+	then
+		cut -d "-" -f 2 "$item"
+	fi
+done
