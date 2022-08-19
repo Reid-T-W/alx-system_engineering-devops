@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#prints extracted content from the etc/passwd file
+exec {file_descriptor}<"/etc/passwd"
+declare -a input_array
+while IFS=":" read -r -a input_array -u $file_descriptor
+	do
+		echo "The user ${input_array[0]} is part of the ${input_array[3]} gang, lives in ${input_array[5]} and rides ${input_array[6]}. ${input_array[2]}'s place is protected by the passcode ${input_array[1]}, more info about the user here: ${input_array[4]}"
+	done
+exec {file_descriptor}>&-
+
