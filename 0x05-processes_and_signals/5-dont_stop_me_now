@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
 #Bash script that displays lines containing the bash word
-pronum=$(ps -ef | grep "bash" | grep "./4-to_infinity_and_beyond"| awk '{print $2}')
-kill "$pronum"
+pkill -f 4-to_infinity_and_beyond
