@@ -14,9 +14,9 @@ elif test "${1}" = "restart"
 then
 	pkill -15 -f "$(cat /var/run/my_process.pid)"
 	rm "/var/run/my_process.pid"
+	echo "manage_my_process restarted"
 	bash manage_my_process
 	echo $$ > "/var/run/my_process.pid"
-	echo "manage_my_process restarted"
 else
 	echo "Usage: manage_my_process {start|stop|restart}"
 fi
