@@ -2,10 +2,22 @@
 #include <unistd.h>
 #include <sys/wait.h>
 /**
- * main - main function that creates 5 zombie processes
- * Return: void
+ *infinite_while - infinite_while loop to keep the parent process running
+ *Return: int
  */
-void main(void)
+int infinite_while(void)
+{
+	while (1)
+	{
+		sleep(1);
+	}
+	return (0);
+}
+/**
+ * main - main function that creates 5 zombie processes
+ * Return: int
+ */
+int main(void)
 {
 	int process_no = 1;
 	pid_t child = 1;
@@ -26,4 +38,5 @@ void main(void)
 	{
 		infinite_while();
 	}
+	return (0);
 }
