@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+ssh-add ~/.ssh/school
+ssh ubuntu@3.238.235.87
