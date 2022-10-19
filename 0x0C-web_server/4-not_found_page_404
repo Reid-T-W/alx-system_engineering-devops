@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Configures Nginx server so that a custom 404 page is served
+apt-get -y update
+apt-get -y install nginx
+ufw allow 'Nginx HTTP'
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
+echo "Ceci n'est pas une page" > /usr/share/nginx/html/custom_404
+old_string="try_files \$uri \$uri\/ =404;"
+new_string="${old_string}\n	}\n	error_page 404 \/custom_404;\n	location = \/custom_404 {\n		root \/usr\/share\/nginx\/html;\n		internal;\n	}"
+sed -i "s/$old_string/$new_string/g" /etc/nginx/sites-available/default
