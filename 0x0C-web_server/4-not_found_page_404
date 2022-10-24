@@ -8,5 +8,5 @@ echo "Ceci n'est pas une page" > /usr/share/nginx/html/custom_404
 old_string="try_files \$uri \$uri\/ =404;\n	}"
 error_string="${old_string}\n	error_page 404 \/custom_404;\n	location = \/custom_404 {\n		root \/usr\/share\/nginx\/html;\n		internal;\n	}"
 final_string="${error_string}\n\n	location \/redirect_me {\n		try_files \$uri =301;\n	}"
-sed -i "N; s/$old_string/$final_string/g" test_default
+sed -i "N; s/$old_string/$final_string/g" /etc/nginx/sites-available/default
 service nginx restart
