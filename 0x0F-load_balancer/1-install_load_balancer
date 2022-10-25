@@ -7,6 +7,7 @@ apt-get -y install haproxy=2.0.\*
 {
 echo -e "\nfrontend http"
 echo "	bind *:80"
+echo "	mode http"
 echo "	default_backend serve"
 echo -e "\nbackend serve"
 echo "	balance roundrobin"
