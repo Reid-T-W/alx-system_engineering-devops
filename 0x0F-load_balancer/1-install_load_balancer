@@ -12,16 +12,6 @@ echo -e "\nbackend serve"
 echo "	balance roundrobin"
 echo "	server 3344-web-01 3.238.235.87:80 check"
 echo "	server 3344-web-02 100.26.133.150:80 check"
-} >> haproxy.cfg
-
-
-# echo "backend 3344-web-01">>/etc/haproxy/haproxy.cfg
-# echo -e "\nfrontend http">>/etc/haproxy/haproxy.cfg
-# echo "	bind *:80">>/etc/haproxy/haproxy.cfg
-# echo "	default_backend serve">>/etc/haproxy/haproxy.cfg
-# echo -e "\nbackend serve">>/etc/haproxy/haproxy.cfg
-# echo "	balance roundrobin">>/etc/haproxy/haproxy.cfg
-# echo "	server 3344-web-01 3.238.235.87:80 check">>/etc/haproxy/haproxy.cfg
-# echo "	server 3344-web-02 100.26.133.150:80 check">>/etc/haproxy/haproxy.cfg
+} >> /etc/haproxy/haproxy.cfg
 echo "ENABLED=1">>/etc/default/haproxy
 service haproxy restart
