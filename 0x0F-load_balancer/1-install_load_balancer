@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 # Configures a brand new Ubuntu server (16.04 LTS) with 
 # HAProxy version 2.0-stable (LTS)
-apt-get -y install --no-install-recommends software-properties-common
-add-apt-repository -y ppa:vbernat/haproxy-2.0
-apt-get -y install haproxy=2.0.\*
+# apt-get -y install --no-install-recommends software-properties-common
+# add-apt-repository -y ppa:vbernat/haproxy-2.0
+# apt-get -y install haproxy=2.0.\*
+sudo apt-get install haproxy
 {
 echo -e "\nfrontend http"
 echo "	bind *:80"
