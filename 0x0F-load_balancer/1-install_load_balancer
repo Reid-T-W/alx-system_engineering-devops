@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# Configures a brand new Ubuntu server (16.04 LTS) with 
+# HAProxy version 2.0-stable (LTS)
+apt-get -y install --no-install-recommends software-properties-common
+add-apt-repository -y ppa:vbernat/haproxy-2.0
+apt-get -y install haproxy=2.0.\*
+{
+echo -e "\nfrontend http"
+echo "	bind *:80"
+echo "	default_backend serve"
+echo -e "\nbackend serve"
+echo "	balance roundrobin"
+echo "	server 3344-web-01 3.238.235.87:80 check"
+echo "	server 3344-web-02 100.26.133.150:80 check"
+} >> haproxy.cfg
+
+
+# echo "backend 3344-web-01">>/etc/haproxy/haproxy.cfg
+# echo -e "\nfrontend http">>/etc/haproxy/haproxy.cfg
+# echo "	bind *:80">>/etc/haproxy/haproxy.cfg
+# echo "	default_backend serve">>/etc/haproxy/haproxy.cfg
+# echo -e "\nbackend serve">>/etc/haproxy/haproxy.cfg
+# echo "	balance roundrobin">>/etc/haproxy/haproxy.cfg
+# echo "	server 3344-web-01 3.238.235.87:80 check">>/etc/haproxy/haproxy.cfg
+# echo "	server 3344-web-02 100.26.133.150:80 check">>/etc/haproxy/haproxy.cfg
+echo "ENABLED=1">>/etc/default/haproxy
+service haproxy restart
