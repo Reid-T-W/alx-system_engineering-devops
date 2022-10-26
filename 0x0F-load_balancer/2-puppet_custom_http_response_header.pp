@@ -1,7 +1,7 @@
 # (puppet manifest that configures a brand new server and sets custom response header)
 exec {'command_install':
   command => 'apt-get -y update;apt-get -y install nginx',
-  path    => '/usr/bin'
+  path    => '/usr/bin',
 }
 exec {'command_header':
   notify  => Service['nginx'],
