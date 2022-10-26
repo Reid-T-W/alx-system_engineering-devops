@@ -4,7 +4,7 @@ package {'nginx':
 }
 exec {'command_header':
   path    => '/bin',
-  command => "sed -i \"42i\	add_header X-Served-By ${hostname};\" /etc/nginx/sites-available/default",
+  command => "sed -i \"42i\\	add_header X-Served-By ${hostname};\" /etc/nginx/sites-available/default",
 }
 service {'nginx':
   ensure => 'running',
