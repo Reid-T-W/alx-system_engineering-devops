@@ -14,7 +14,7 @@ file {'/usr/share/nginx/html/custom_404':
 }
 exec {'command':
   path    => '/bin',
-  command => 'sed -i "48i\	location \/redirect_me {\n		try_files \$uri =301;\n	}" /etc/nginx/sies-available/default',
+  command => 'sed -i "48i\	location \/redirect_me {\n		try_files \$uri =301;\n	}" /etc/nginx/sites-available/default',
 }
 service {'nginx':
   ensure => 'running',
