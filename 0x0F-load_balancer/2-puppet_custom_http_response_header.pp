@@ -14,16 +14,16 @@ file {'/usr/share/nginx/html/custom_404':
 }
 exec {'command_301':
   path    => '/bin',
-  command => 'sed -i "49i\	location \/redirect_me {\n		try_files \$uri =301;\n	}" /etc/nginx/sites-available',
+  command => 'sed -i "49i\	location \/redirect_me {\n		try_files \$uri =301;\n	}" /etc/nginx/sites-available/default',
 }
 exec {'command_404':
   path    => '/bin',
   command => 'sed -i "49i\	error_page 404 \/custom_404;\n	location = \/custom_404 \
-{\n		root \/usr\/share\/nginx\/html;\n		internal;\n	}" /etc/nginx/sites-available',
+{\n		root \/usr\/share\/nginx\/html;\n		internal;\n	}" /etc/nginx/sites-available/default',
 }
 exec {'command_header':
   path    => '/bin',
-  command => "sed -i \"42i\	add_header X-Served-By ${hostname};\" /etc/nginx/sites-available",
+  command => "sed -i \"42i\	add_header X-Served-By ${hostname};\" /etc/nginx/sites-available/default",
 }
 service {'nginx':
   ensure => 'running',
