@@ -2,6 +2,6 @@
 # Configure nginx to run as non-root and listen on port 8080
 old_string="listen 80 default_server;"
 new_string="listen 8080 default_server;"
-sed -i "s/$old_string/$new_string/g" default
-sed -i "1d" nginx.conf
-sed -i "1iuser nginx;" nginx.conf
+sed -i "s/$old_string/$new_string/g" /etc/nginx/sites-available/default
+sed -i "1d" /etc/nginx/nginx.conf
+sed -i "1iuser nginx;" /etc/nginx/nginx.conf
