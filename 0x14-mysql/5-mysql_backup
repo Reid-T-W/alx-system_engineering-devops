@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# This bash scripts creates a backup of all databses and stores
+# the backup in tar.gz file
 sudo mysqldump -uroot -p"$1" --all-databases > backup.sql 2>/dev/null
 date=$(date '+%d-%m-%Y')
 tar -zcvf "$date".tar.gz backup.sql
