@@ -21,9 +21,9 @@ def recurse(subreddit, hot_list=[], after=''):
                                headers=headers, allow_redirects=False)
         subreddit_data = res.json()
     except Exception:
-        return ('None')
+        return (None)
     if 'error' in subreddit_data.keys():
-        return ('None')
+        return (None)
     details = subreddit_data['data']['children']
     for detail in details:
         hot_list.append(detail['data']['title'])
