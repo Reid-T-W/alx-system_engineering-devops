@@ -17,6 +17,7 @@ def top_ten(subreddit):
         print('None')
     if 'error' in subreddit_data.keys():
         print('None')
-    details = subreddit_data['data']['children']
-    for detail in details:
-        print(detail['data']['title'])
+    else:
+        details = subreddit_data['data']['children']
+        for detail in details:
+            print(detail['data']['title'])
