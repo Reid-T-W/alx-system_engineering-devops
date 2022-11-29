@@ -9,7 +9,7 @@ def number_of_subscribers(subreddit):
             'User-Agent': 'My User Agent 1.0',
     }
     res = requests.get('https://www.reddit.com/r/'+subreddit
-                       + '/about.json', headers=headers)
+                       + '/about.json', headers=headers, allow_redirects=False)
     subreddit_data = res.json()
     if 'error' in subreddit_data.keys():
         return (0)
