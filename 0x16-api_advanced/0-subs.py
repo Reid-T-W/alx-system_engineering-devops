@@ -8,6 +8,8 @@ def number_of_subscribers(subreddit):
     headers = {
             'User-Agent': 'My User Agent 1.0',
     }
+    if subreddit is None:
+        return (0)
     try:
         res = requests.get('https://www.reddit.com/r/'+subreddit
                            + '/about.json', headers=headers,
