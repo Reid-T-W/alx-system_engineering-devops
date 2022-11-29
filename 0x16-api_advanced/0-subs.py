@@ -8,10 +8,9 @@ def number_of_subscribers(subreddit):
     headers = {
             'User-Agent': 'My User Agent 1.0',
     }
-    try:
-        res = requests.get('https://www.reddit.com/r/'+subreddit
-                           + '/about.json', headers=headers)
-    except Exception:
-        return (0)
+    res = requests.get('https://www.reddit.com/r/'+subreddit
+                       + '/about.json', headers=headers)
     subreddit_data = res.json()
+    if 'error' in subreddit_data.keys():
+        return (0)
     return(subreddit_data['data']['subscribers'])
