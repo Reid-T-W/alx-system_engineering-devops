@@ -14,7 +14,9 @@ def count_words(subreddit, word_list, after='', tok={}):
     }
     try:
         if after is None:
-            for key, value in tok.items():
+            sorted_tok = sorted(tok.items(), key=lambda x: x[1], reverse=True)
+            dict_sorted_tok = dict(sorted_tok)
+            for key, value in dict_sorted_tok.items():
                 if value != 0:
                     print('{}: {}'.format(key, value))
             return None
