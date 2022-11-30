@@ -6,7 +6,7 @@ import requests
 def number_of_subscribers(subreddit):
     """gets number of subscribers of a subreddit"""
     headers = {
-            'User-Agent': 'My User Agent 1.0',
+        'User-Agent': 'My User Agent 1.0',
     }
     if subreddit is None:
         return (0)
