@@ -10,7 +10,7 @@ def count_words(subreddit, word_list, after='', tok={}):
     appear in those articles
     """
     headers = {
-            'User-Agent': 'My User Agent 1.0',
+        'User-Agent': 'My User Agent 1.0',
     }
     try:
         if after is None:
@@ -42,6 +42,6 @@ def count_words(subreddit, word_list, after='', tok={}):
         for token in tokens:
             token = token.lower()
             if token in word_list:
-                tok[f'{token}'] = tok[f'{token}'] + 1
+                tok['{}'.format(token)] = tok['{}'.format(token)] + 1
     after = subreddit_data['data']['after']
     return (count_words(subreddit, word_list, after, tok))
