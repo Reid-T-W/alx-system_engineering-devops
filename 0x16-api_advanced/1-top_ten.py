@@ -6,7 +6,7 @@ import requests
 def top_ten(subreddit):
     """gets number of subscribers of a subreddit"""
     headers = {
-            'User-Agent': 'My User Agent 1.0',
+        'User-Agent': 'My User Agent 1.0',
     }
     try:
         res = requests.get('https://www.reddit.com/r/'+subreddit
