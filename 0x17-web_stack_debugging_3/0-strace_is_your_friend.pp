@@ -1,5 +1,6 @@
-# (This puppet file creates an html file)
-file {'/var/www/html/index.html':
-  path    => '/var/www/html/index.html',
-  content => "<title>Holberton &#8211; Just another WordPress site</title>\n<link rel=\"alternate\" type=\"application/rss+xml\" title=\"Holberton &raquo; Feed\" href=\"http://127.0.0.1/?feed=rss2\" />\n<link rel=\"alternate\" type=\"application/rss+xml\" title=\"Holberton &raquo; Comments Feed\" href=\"http://127.0.0.1/?feed=comments-rss2\" />\n        <div id=\"wp-custom-header\" class=\"wp-custom-header\"><img src=\"http://127.0.0.1/wp-content/themes/twentyseventeen/assets/images/header.jpg\" width=\"2000\" height=\"1200\" alt=\"Holberton\" /></div>  </div>\n                            <h1 class=\"site-title\"><a href=\"http://127.0.0.1/\" rel=\"home\">Holberton</a></h1>\n        <p>Yet another bug by a Holberton student</p>",
+# (This puppet file corrects the extension of the class-wp-locale file)
+exec {'mv':
+  command => 'mv class-wp-locale.php class-wp-locale.phpp',
+  cwd     => '/var/www/html/wp-includes',
+  path    => '/bin',
 }
