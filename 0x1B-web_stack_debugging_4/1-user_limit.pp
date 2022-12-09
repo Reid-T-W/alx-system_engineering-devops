@@ -5,6 +5,6 @@ exec {'sed_hard':
 }
 
 exec {'sed_soft':
-  path => '/bin',
+  path    => '/bin',
   command => 'sed -i "s/holberton soft nofile 4/#holberton soft nofile 4/g" /etc/security/limits.conf',
 }
